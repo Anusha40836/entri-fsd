@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CallBacks and Schedulers</title>
+  </head>
+  <body>
+    <button id="setIntervalBtn">SET INTERVAL</button>
+    <button id="clearIntervalBtn">CLEAR INTERVAL</button>
+  </body>
+  <script>
+    //CallBacks
+    function displayGreeting(displayName) {
+      console.log("Hello🙏");
+      displayName();
+      console.log("Good Morning🌅...!");
+    }
+    let displayName = function () {
+      console.log("RoohiAnshu😍");
+    };
+    displayGreeting(displayName);
+
+    //Schedulers
+    let setIntervalBtnEl = document.getElementById("setIntervalBtn");
+    let clearIntervalBtnEl = document.getElementById("clearIntervalBtn");
+
+    let uniqueId;
+    setIntervalBtnEl.onclick = function () {
+      let count = 0;
+      uniqueId = setInterval(function () {
+        console.log(count);
+        count++;
+      }, 1000);
+    };
+
+    clearIntervalBtnEl.onclick = function () {
+      clearInterval(uniqueId);
+      console.log("uniqueId is: " + uniqueId);
+    };
+  </script>
+</html>

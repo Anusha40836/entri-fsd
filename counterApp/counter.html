@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter Application</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="counter.css" />
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!--JavaScript-->
+    <script src="counter.js" defer></script>
+  </head>
+  <body>
+    <div
+      class="bg-container text-center d-flex flex-column justify-content-center"
+    >
+      <h1 class="counter-heading">Counter</h1>
+      <p id="counterValue" class="counter-value">0</p>
+      <div>
+        <button class="button" onclick="onDecrement()">DECREASE</button>
+        <button class="button" onclick="onReset()">RESET</button>
+        <button class="button" onclick="onIncrement()">INCREASE</button>
+      </div>
+    </div>
+  </body>
+</html>
