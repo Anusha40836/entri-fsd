@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 9 - JavaScript DOM & Selectors</title>
+  </head>
+  <body>
+    <div id="main-title">
+      <h1>JavaScript DOM Selectors Assignment</h1>
+    </div>
+
+    <ul>
+      <li class="list-item">Item 1</li>
+      <li class="list-item">Item 2</li>
+      <li class="list-item">Item 3</li>
+    </ul>
+
+    <div>
+      <p class="content">This is a Sample Paragraph</p>
+
+      <button id="change-text">Click Me</button>
+    </div>
+    <script>
+      //Change the text of the heading (h1) using getElementById.
+      document.getElementById("main-title").innerHTML =
+        "<h1>Updated Title</h1>";
+
+      //Change the color of all list items using getElementsByClassName.
+      let items = document.getElementsByClassName("list-item");
+      for (let i = 0; i < items.length; i++) {
+        items[i].style.color = "Red";
+      }
+
+      //Change the background color of the first <li> element using getElementsByTagName.
+      document.getElementsByTagName("li")[0].style.backgroundColor =
+        "blueViolet";
+
+      //Modify the text of the paragraph using querySelector.
+      document.querySelector("p").textContent = "Modified Paragraph";
+      // document.querySelector(".content p").innerText = "This text has been modified!";
+
+      //Apply a border to all <li> elements using querySelectorAll.
+      let listItems = document.querySelectorAll("ul li");
+      listItems.forEach((item) => (item.style.border = "1px dotted grey"));
+
+      //Task 3: Interactivity Using JavaScript (2 Marks)
+
+      document
+        .getElementById("change-text")
+        .addEventListener("click", function () {
+          document.getElementById("main-title").innerHTML =
+            "<h1>DOM Manipulation Successfull..!!</h1>";
+        });
+    </script>
+  </body>
+</html>

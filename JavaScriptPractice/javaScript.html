@@ -3,26 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>JavaScript Practice</title>
+    <link rel="stylesheet" href="javaScript.css" />
     <script src="javaScript.js" defer></script>
+    <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
   </head>
   <body>
-    <!-- <h1 id="getName"></h1> -->
-
-    <!-- <button id="greetBtn">Greet</button> -->
-    <label>Enter your name:</label>
-    <input type="text" id="inputField" />
-
-    <script>
-      // let greetBtnEl = document.getElementById("greetBtn");
-      // greetBtnEl.addEventListener("click", function () {
-      //   console.log("Hello Anusha!");
-      // });
-
-      let inputFieldEl = document.getElementById("inputField");
-      inputFieldEl.addEventListener("click", function (event) {
-        console.log(event.type);
-      });
-    </script>
+    <div id="root"></div>
   </body>
+
+  <script type="text/babel">
+    const rootElement = document.getElementById("root");
+
+    const Welcome = (props) => {
+      const { name } = props;
+      return (
+        <>
+          <h1 className="greeting">Hello, {name}</h1>
+          <h2>Welcome to React</h2>;
+        </>
+      );
+    };
+    const Greetings = () => {
+      return (
+        <>
+          <Welcome name="Shobha" />
+        </>
+      );
+    };
+    ReactDOM.render(
+      <>
+        <Greetings />
+      </>,
+      rootElement
+    );
+  </script>
 </html>

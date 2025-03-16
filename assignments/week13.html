@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   function greet(name, callback) {
+      //     console.log("Hello " + name);
+      //     callback();
+      //   }
+      //   function sayGoodBye() {
+      //     console.log("Goodbye");
+      //   }
+      //   greet("Anusha", sayGoodBye);
+
+      //   function step1(callback) {
+      //     setTimeout(() => {
+      //       console.log("Step 1 done");
+      //     });
+      //   }
+      //   function step2(callback) {
+      //     setTimeout(() => {
+      //       console.log("Step 2 done");
+      //     });
+      //   }
+      //   function step3(callback) {
+      //     setTimeout(() => {
+      //       console.log("Step 3 done");
+      //     });
+      //   }
+
+      //   step1(() => {
+      //     step2(() => {
+      //       step3(() => {
+      //         console.log("All steps completed");
+      //       });
+      //     });
+      //   });
+
+      function step1() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log("step 1 is done");
+            resolve();
+          }, 1000);
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Website with Bootstrap 5</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <style>
+      /* Custom Styles */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f8f9fa;
+      }
+      .navbar-custom {
+        background-color: #343a40;
+      }
+      .navbar-custom .navbar-brand,
+      .navbar-custom .nav-link {
+        color: #ffffff !important;
+      }
+      .navbar-custom .nav-link:hover {
+        color: #ffc107 !important;
+      }
+      .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://via.placeholder.com/1500x800");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        text-align: center;
+      }
+      .hero-section h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+      }
+      .hero-section p {
+        font-size: 1.5rem;
+      }
+      .btn-custom {
+        background-color: #ffc107;
+        border: none;
+        color: #343a40;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      .btn-custom:hover {
+        background-color: #343a40;
+        color: #ffffff;
+        transform: scale(1.05);
+      }
+      .card-custom {
+        transition: transform 0.3s ease;
+      }
+      .card-custom:hover {
+        transform: translateY(-10px);
+      }
+      .footer {
+        background-color: #343a40;
+        color: #ffffff;
+        padding: 20px 0;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container">
+        <a class="navbar-brand" href="#">Anusha's Website</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>Anusha
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+                >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#signupModal"
+                >Signup</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <h1>Welcome to MyWebsite</h1>
+        <p>Your one-stop solution for all your needs.</p>
+        <a href="#" class="btn btn-custom">Get Started</a>
+      </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="container my-5">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="card card-custom">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Service 1"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Service 1</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="card card-custom">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Service 2"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Service 2</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="card card-custom">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Service 3"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Service 3</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 Anusha's Website. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal">
+              Anusha
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="loginEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="loginEmail" />
+              </div>
+              <div class="mb-3">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="loginPassword"
+                />
+              </div>
+              <button type="submit" class="btn btn-custom">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Signup</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal">
+              Anusha
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="signupName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="signupName" />
+              </div>
+              <div class="mb-3">
+                <label for="signupEmail" class="form-label"
+                  >Email address</label
+                >
+                <input type="email" class="form-control" id="signupEmail" />
+              </div>
+              <div class="mb-3">
+                <label for="signupPassword" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="signupPassword"
+                />
+              </div>
+              <button type="submit" class="btn btn-custom">Signup</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
