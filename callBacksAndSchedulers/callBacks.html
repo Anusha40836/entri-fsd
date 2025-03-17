@@ -6,37 +6,23 @@
     <title>CallBacks and Schedulers</title>
   </head>
   <body>
-    <button id="setIntervalBtn">SET INTERVAL</button>
-    <button id="clearIntervalBtn">CLEAR INTERVAL</button>
+    <button id="setIntervalBtn">Set Timeout</button>
+    <button id="clearIntervalBtn">Clear Timeout</button>
   </body>
   <script>
-    //CallBacks
-    function displayGreeting(displayName) {
-      console.log("Hello🙏");
-      displayName();
-      console.log("Good Morning🌅...!");
-    }
-    let displayName = function () {
-      console.log("RoohiAnshu😍");
-    };
-    displayGreeting(displayName);
-
-    //Schedulers
     let setIntervalBtnEl = document.getElementById("setIntervalBtn");
-    let clearIntervalBtnEl = document.getElementById("clearIntervalBtn");
-
+    let count = 0;
     let uniqueId;
-    setIntervalBtnEl.onclick = function () {
-      let count = 0;
-      uniqueId = setInterval(function () {
+    setIntervalBtnEl.addEventListener("click", function () {
+      uniqueId = setTimeout(function () {
+        count = count + 1;
         console.log(count);
-        count++;
-      }, 1000);
-    };
+      }, 2000);
+    });
 
-    clearIntervalBtnEl.onclick = function () {
-      clearInterval(uniqueId);
-      console.log("uniqueId is: " + uniqueId);
-    };
+    let clearIntervalBtnEl = document.getElementById("clearIntervalBtn");
+    clearIntervalBtnEl.addEventListener("click", function () {
+      clearTimeout(uniqueId);
+    });
   </script>
 </html>
