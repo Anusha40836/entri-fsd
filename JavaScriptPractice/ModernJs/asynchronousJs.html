@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asynchronous JS</title>
+  </head>
+  <body>
+    <script>
+      let url = "https://apis.ccbp.in/jokes/random";
+
+      const doNetworkCall = async () => {
+        try {
+          const response = await fetch(url);
+          const jsondata = await response.json();
+          console.log(jsondata);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      const asyncPromiseObject = doNetworkCall();
+      console.log(asyncPromiseObject);
+    </script>
+  </body>
+</html>

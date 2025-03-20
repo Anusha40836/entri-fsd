@@ -25,8 +25,4 @@ function List(props) {
   );
 }
 
-List.defaultProps = {
-  category: "Category",
-  items: [],
-};
 export default List;

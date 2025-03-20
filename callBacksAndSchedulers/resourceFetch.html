@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resource Fetching</title>
+  </head>
+  <body>
+    <script>
+      let data = {
+        name: "Anusha",
+        email: "anu@gmail.com",
+        gender: "Female",
+        status: "Active",
+      };
+
+      let url = "https://gorest.co.in/public-api/users";
+
+      let options = {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+          Accept: "application/json",
+          Authorization:
+            "Bearer 9632e823ad6eba0149219a91a6a826c5d97925767ec91723075cecdf3b9704a7",
+        },
+        body: JSON.stringify(CharacterData),
+      };
+
+      fetch(url, options)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+        });
+    </script>
+  </body>
+</html>

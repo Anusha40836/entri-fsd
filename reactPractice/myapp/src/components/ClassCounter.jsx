@@ -1,31 +1,28 @@
 import React, { Component } from "react";
 
-export default class classCounter extends Component {
+export default class ClassCounter extends Component {
   constructor(props) {
-    super(props),
-      (this.state = {
-        count: 0,
-      });
+    super(props);
+    this.state = {
+      count: 0,
+    };
   }
 
   handleIncrement = () => {
     this.setState({ count: this.state.count + 1 });
   };
-  handleDecrement = () => {
-    this.setState({ count: this.state.count - 1 });
-  };
-  handleReset = () => {
-    this.setState({ count: (this.state.count = 0) });
-  };
   render() {
     return (
-      <div>
-        <h1>I am a Class Component </h1>
-        <h3>Count:{this.state.count}</h3>
+      <>
+        <h1>Class Component Counter</h1>
+        <h2>Count:{this.state.count}</h2>
         <button onClick={this.handleIncrement}>Increment</button>
-        <button onClick={this.handleDecrement}>Decrement</button>
-        <button onClick={this.handleReset}>Reset</button>
-      </div>
+        <h3>This Data is from props:{this.props.name}</h3>
+      </>
     );
   }
 }
+
+ClassCounter.defaultProps = {
+  name: "Shobha",
+};

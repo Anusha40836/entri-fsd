@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Classes</title>
+  </head>
+  <body>
+    <script>
+      class Car {
+        constructor(color, name) {
+          this.color = color;
+          this.name = name;
+        }
+
+        drive() {
+          return `I am driving ${this.color} ${this.name}`;
+        }
+      }
+      let car1 = new Car("white", "BMW");
+      console.log(car1);
+      console.log(car1.drive());
+
+      class Audi extends Car {
+        constructor(color, name, model) {
+          super(color, name);
+          this.model = model;
+        }
+
+        own() {
+          return `Akash owns ${this.color} ${this.name} with ${this.model} model `;
+        }
+      }
+      let Audi1 = new Audi("Red", "Audi", "A5");
+      console.log(Audi1);
+      console.log(Audi1.own());
+      console.log(Audi1.drive());
+    </script>
+  </body>
+</html>

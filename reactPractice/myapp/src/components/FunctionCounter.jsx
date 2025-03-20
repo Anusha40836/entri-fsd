@@ -1,31 +1,22 @@
-import React, { useEffect, useState } from "react";
-function FunctionCounter() {
-  let [count, setCount] = useState(0);
-  //   useEffect(() => {
-  //     document.title = `count is ${count}`;
-  //     alert("Re-rendering");
-  //   });
-  function handleIncrement() {
-    setCount(count + 1);
-  }
+import React, { useState } from "react";
 
-  function handleDecrement() {
-    setCount(count - 1);
-  }
+function FunctionCounter(props) {
+  const [count, setCount] = useState(0);
+
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
   return (
-    <div>
-      <h1>I am a Functional Component</h1>
-      <h3>Count:{count}</h3>
+    <>
+      <h1>Functional Component Counter</h1>
+      <h2>Count:{count}</h2>
       <button onClick={handleIncrement}>Increment</button>
-      <button onClick={handleDecrement}>Decrement</button>
-      <button
-        onClick={() => {
-          setCount((count = 0));
-        }}
-      >
-        Reset
-      </button>
-    </div>
+      <h3>This Data is from props:{props.name} </h3>
+    </>
   );
 }
+
+FunctionCounter.defaultProps = {
+  name: "Amarnath",
+};
 export default FunctionCounter;
