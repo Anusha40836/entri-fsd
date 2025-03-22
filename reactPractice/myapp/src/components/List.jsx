@@ -1,17 +1,17 @@
 import React from "react";
 
 function List(props) {
-  const itemsList = props.items;
-
-  const listItems = itemsList.map((eachItem) => (
+  const { items, category } = props;
+  const listItems = items.map((eachItem) => (
     <li key={eachItem.id}>
       {eachItem.name}:{eachItem.color}:{eachItem.cost}
     </li>
   ));
   return (
-    <div>
+    <>
+      <h1>{category}</h1>
       <ol>{listItems}</ol>
-    </div>
+    </>
   );
 }
 
