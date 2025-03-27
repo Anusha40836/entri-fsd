@@ -1,32 +1,48 @@
 import React, { useState } from "react";
 
 function ConditionalRendering() {
-  const [login, setLogin] = useState();
+  const [login, setLogin] = useState(true);
 
-  function handleLogin() {
-    setLogin(true);
+  function toggleStatus() {
+    setLogin(!login);
   }
 
-  function handleLogout() {
-    setLogin(false);
-  }
-  //Using Logical && Operator
+  // function handleLogin() {
+  //   setLogin(true);
+  // }
+
+  // function handleLogout() {
+  //   setLogin(false);
+  // }
+
+  //Using Toggle
   return (
     <>
-      {login && (
-        <>
-          <h1>Welcome, User</h1>
-          <button onClick={handleLogout}>Logout</button>
-        </>
-      )}
-      {!login && (
-        <>
-          <h1>Please Login</h1>
-          <button onClick={handleLogin}>Login</button>
-        </>
-      )}
+      <h1>Change UI based on Click</h1>
+      {login && <p>This paragraph will be show/hidden on click</p>}
+      <button onClick={toggleStatus}>
+        {login ? "Welcome" : "Please Login"}
+      </button>
     </>
   );
+
+  //Using Logical && Operator
+  // return (
+  //   <>
+  //     {login && (
+  //       <>
+  //         <h1>Welcome, User</h1>
+  //         <button onClick={handleLogout}>Logout</button>
+  //       </>
+  //     )}
+  //     {!login && (
+  //       <>
+  //         <h1>Please Login</h1>
+  //         <button onClick={handleLogin}>Login</button>
+  //       </>
+  //     )}
+  //   </>
+  // );
 
   //Using Ternary Operators
 

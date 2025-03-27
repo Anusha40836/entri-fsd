@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-
 import axios from "axios";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function DataFetchingDemo() {
   const [posts, setPosts] = useState([]);
@@ -10,18 +11,29 @@ function DataFetchingDemo() {
       .then(function (response) {
         setPosts(response.data);
       })
+      .then(function (data) {
+        console.log(data);
+      })
       .catch(function (error) {
         console.log(error);
       });
-  });
+  }, []);
 
-  let listOfItems = posts.map((eachItem) => (
-    <li key={eachItem.id}>{eachItem.email}</li>
+  const listOfPosts = posts.map((eachItem) => (
+    <li key={eachItem.id}>{eachItem.body}</li>
   ));
   return (
     <>
-      <h1>Data Fetching Using Axios</h1>
-      <ul>{listOfItems}</ul>
+      <h1>Data Feching</h1>
+      <ul>
+        {listOfPosts ? (
+          listOfPosts
+        ) : (
+          <Backdrop open>
+            <CircularProgress color="inherit" />
+          </Backdrop>
+        )}
+      </ul>
     </>
   );
 }

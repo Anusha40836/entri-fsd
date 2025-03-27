@@ -4,8 +4,18 @@ import ClassCounter from "./components/classCounter";
 import FunctionCounter from "./components/FunctionCounter";
 import ConditionalRendering from "./components/ConditionalRendering";
 import FetchingData from "./components/FetchingData";
+import ParentComp from "./components/ParentComp";
+import ListComp from "./components/ListComp";
+import UseStateDemo from "./components/UseStateDemo";
+import CoditionRend from "./components/CoditionRend";
+import OnClickEvent from "./components/OnClickEvent";
+import CssDemo from "./components/CssDemo";
+import FormsDemo from "./components/FormsDemo";
 
 function App() {
+  function greeting() {
+    return "Hello, I am a function passed as a prop";
+  }
   const fruits = [
     { id: 1, name: "apple", color: "red", cost: 120 },
     { id: 2, name: "dates", color: "brown", cost: 350 },
@@ -20,14 +30,21 @@ function App() {
     { id: 4, name: "beans", color: "green", cost: 250 },
   ];
   return (
-    <div>
+    <>
       {/* <List items={fruits} category="FRUITS" /> */}
       {/* <List items={vegetables} category="VEGETABLES" /> */}
       {/* <ClassCounter /> */}
       {/* <FunctionCounter name="Anshu" /> */}
       {/* <ConditionalRendering /> */}
-      <FetchingData />
-    </div>
+      {/* <FetchingData /> */}
+      {/* <ParentComp name="Adam" age={25} greetings={greeting} /> */}
+      {/* <ListComp /> */}
+      {/* <UseStateDemo /> */}
+      {/* <CoditionRend name="Anu" user={true} /> */}
+      {/* <OnClickEvent /> */}
+      {/* <CssDemo /> */}
+      <FormsDemo />
+    </>
   );
 }
 
