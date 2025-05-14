@@ -1,4 +1,7 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+
 import List from "./components/List";
 import ClassCounter from "./components/classCounter";
 import FunctionCounter from "./components/FunctionCounter";
@@ -11,6 +14,8 @@ import CoditionRend from "./components/CoditionRend";
 import OnClickEvent from "./components/OnClickEvent";
 import CssDemo from "./components/CssDemo";
 import FormsDemo from "./components/FormsDemo";
+import Counter from "./components/Counter";
+import Carousels from "./components/Carousels";
 
 function App() {
   function greeting() {
@@ -43,7 +48,9 @@ function App() {
       {/* <CoditionRend name="Anu" user={true} /> */}
       {/* <OnClickEvent /> */}
       {/* <CssDemo /> */}
-      <FormsDemo />
+      {/* <FormsDemo /> */}
+      {/* <Counter /> */}
+      <Carousels />
     </>
   );
 }

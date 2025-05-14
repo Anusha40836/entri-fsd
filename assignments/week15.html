@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        background-color: whitesmoke;
+      }
+      .card {
+        width: 350px;
+        margin: auto;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="#">Profile Dashboard</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#users">Users</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Profile Card -->
+    <div class="container mt-4">
+      <div class="card text-center">
+        <img
+          src="https://randomuser.me/api/portraits/women/65.jpg"
+          class="card-img-top mx-auto d-block mt-3 rounded-circle"
+          style="width: 100px"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Anusha A</h5>
+          <p class="card-text">Web Developer | Tech Enthusiast</p>
+          <div class="social-links">
+            <a href="#" class="text-primary mx-2"
+              ><i class="fab fa-twitter fa-lg"></i
+            ></a>
+            <a href="#" class="text-primary mx-2"
+              ><i class="fab fa-linkedin fa-lg"></i
+            ></a>
+            <a href="#" class="text-primary mx-2"
+              ><i class="fab fa-github fa-lg"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Contact Form -->
+    <div class="container mt-4">
+      <h3>Contact Me</h3>
+      <form id="contact-form">
+        <input
+          type="text"
+          id="name"
+          class="form-control mb-2"
+          placeholder="Your Name"
+        />
+        <input
+          type="email"
+          id="email"
+          class="form-control mb-2"
+          placeholder="Your Email"
+        />
+        <textarea
+          id="message"
+          class="form-control mb-2"
+          placeholder="Your Message"
+        ></textarea>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+      <p id="form-status" class="mt-2 text-success"></p>
+    </div>
+    <!-- User List -->
+    <div class="container mt-4">
+      <h3>Users List (Fetched from API)</h3>
+      <button id="fetch-users" class="btn btn-info">Fetch Users</button>
+      <ul id="user-list" class="list-group mt-2"></ul>
+    </div>
+  </body>
+  <script>
+    document
+      .getElementById("contact-form")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let message = document.getElementById("message").value.trim();
+        let status = document.getElementById("form-status");
+
+        if (name === "" || email === "" || message === "") {
+          status.innerHTML = "All fields are required...!";
+          status.style.color = "red";
+        } else {
+          status.innerHTML = "Message sent successfully...!";
+          status.style.color = "green";
+        }
+      });
+
+    //fetching users
+    document
+      .getElementById("fetch-users")
+      .addEventListener("click", function () {
+        fetch("https://jsonplaceholder.typicode.com/users")
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (users) {
+            let userList = document.getElementById("user-list");
+            userList.innerHTML = ""; //clear previous list
+            users.forEach((user) => {
+              let li = document.createElement("li");
+              li.className = "list-group-item";
+              li.innerText = `${user.name} - ${user.email}`;
+              userList.appendChild(li);
+            });
+          });
+      })
+      .catch(function (error) {
+        console.log("Error fetching users" + error);
+      });
+  </script>
+</html>
