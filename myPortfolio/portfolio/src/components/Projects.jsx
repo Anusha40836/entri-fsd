@@ -3,19 +3,19 @@ import React from "react";
 const Projects = () => {
   const projects = [
     {
-      title: "Portfolio Website",
+      title: "Book Management System",
       description:
         "A personal portfolio website built with React and Bootstrap showcasing my projects and skills.",
       image: "https://picsum.photos/300/200?random=1",
     },
     {
-      title: "E-Commerce Store",
+      title: "Task Tracker App",
       description:
         "An online store web application with product listings, cart functionality, and checkout process.",
       image: "https://picsum.photos/300/200?random=2",
     },
     {
-      title: "Blog Platform",
+      title: "Basic Auth App",
       description:
         "A blog platform where users can read, write, edit, and delete blog posts. Built using the MERN stack.",
       image: "https://picsum.photos/300/200?random=3",
