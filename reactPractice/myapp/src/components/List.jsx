@@ -1,17 +1,23 @@
 import React from "react";
 
-function List(props) {
-  const { items, category } = props;
-  const listItems = items.map((eachItem) => (
-    <li key={eachItem.id}>
-      {eachItem.name}:{eachItem.color}:{eachItem.cost}
-    </li>
-  ));
+function List() {
+  const fruits = [
+    { name: "apple", color: "red" },
+    { name: "orange", color: "amber" },
+    { name: "mango", color: "green" },
+    { name: "banana", color: "yellow" },
+  ];
   return (
-    <>
-      <h1>{category}</h1>
-      <ol>{listItems}</ol>
-    </>
+    <div>
+      <h1>List App</h1>
+      <ul>
+        {fruits.map((fruit, index) => (
+          <li key={index}>
+            {fruit.name}:{fruit.color}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

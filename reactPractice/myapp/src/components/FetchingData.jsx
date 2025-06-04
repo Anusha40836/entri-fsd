@@ -1,26 +1,40 @@
-import React, { useEffect, useState } from "react";
-import Axios from "axios";
+import React, { useState, useEffect } from "react";
 
 function FetchingData() {
   const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    Axios.get("https://jsonplaceholder.typicode.com/posts")
-      .then(function (response) {
-        setPosts(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const listItems = posts.map((eachItem) => (
-    <li key={eachItem.id}>{eachItem.body}</li>
-  ));
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((res) => {
+        if (!res.ok) throw new Error("failed to fetch posts");
+        return res.json();
+      })
+      .then((data) => {
+        setPosts(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <p>Loading posts...</p>;
+
+  if (error) return <p>{error}</p>;
+
   return (
-    <>
-      <h1>Data Feching Using Axios</h1>
-      <ul>{listItems}</ul>
-    </>
+    <div>
+      <h1>Fetching Posts</h1>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
